@@ -7,6 +7,15 @@ class HeloController extends AppController
 {
 	public function index($a = '', $b = '')
 	{
+		$str = $this->request->data('text1');
+        if ($str != null){
+            $str = $this->request->data['text1'];
+            $this->set('message', 'you typed:' . $str);
+        } else {
+            $this->set('message','please type...');
+        }
+	//$this->set('message', 'Hello! this is sample page. ;-)');
+	/*
 		if ($a == '') {
 			$this->setAction('err');
 			return;
@@ -22,6 +31,7 @@ class HeloController extends AppController
 			echo " パラメータB: " . $b;
 		}
 		echo "</p></body></html>";
+		*/
 	}
 
 	public function err()
